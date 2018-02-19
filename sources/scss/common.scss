@@ -1,0 +1,837 @@
+* {
+
+  margin: 0;
+  padding: 0;
+
+}
+
+html {
+  
+  box-sizing: border-box;
+
+}
+
+*, *:before, *:after {
+  
+  box-sizing: inherit;
+
+}
+
+// Body
+
+body {
+
+  background-color: $dark-bg;
+  color: $white;
+  font-family: 'Lato', sans-serif;
+
+}
+
+// Typography
+
+h1 {
+
+  font-size: 32px;
+
+}
+
+h2 {
+
+  font-size: 28px;
+
+}
+
+h3 {
+
+  font-size: 24px;
+
+}
+
+h4 {
+
+  font-size: 22px;
+
+}
+
+h5 {
+
+  font-size: 20px;
+
+}
+
+h6 {
+
+  font-size: 16px;
+
+}
+
+h1, h2, h3, h4, h5, h6 {
+
+  font-weight: 700;
+
+}
+
+.start-title {
+
+  @media (min-width: 1024px) and (max-width: 1300px) {
+
+    margin-top: 100px;
+
+  }
+
+}
+
+.main-title {
+
+  font-size: 30px;
+  font-weight: 600;
+  text-transform: uppercase;
+
+  @media (min-width: $screen-sm) {
+
+    font-size: 50px;
+
+  }
+
+}
+
+.txt-blue {
+
+  color: $blue;
+
+}
+
+.txt-rose {
+
+  color: $rose;
+
+}
+
+// Buttons
+
+.btn {
+
+  height: 40px;
+  padding: 12px 30px;
+  font-size: 16px;
+  line-height: 16px;
+  outline: none;
+
+  @include transition(.2s ease);
+  @include no-select();
+
+  &-default {
+
+    color: $white;
+    background-color: $blue;
+
+    &:hover {
+
+      background-color: lighten($blue, 3%);
+
+    }
+
+    &:active {
+
+      background-color: darken($blue, 5%);
+
+    }
+
+    @include border-radius(30px);
+
+  }
+
+  &-dark {
+
+    color: $white;
+    background-color: $blue-dark;
+
+    &:hover {
+
+      background-color: lighten($blue-dark, 3%);
+
+    }
+
+    &:active {
+
+      background-color: darken($blue-dark, 5%);
+
+    }
+
+    @include border-radius(30px);
+
+  }
+
+}
+
+// Links
+
+.link {
+
+  color: $white;
+  cursor: pointer;
+
+  @include transition(.2s ease);
+
+  &:hover {
+
+    color: $blue;
+
+  }
+
+  &:active {
+
+    color: darken($blue, 10%);
+
+  }
+
+}
+
+.link-blue {
+
+  color: $blue;
+  cursor: pointer;
+
+  @include transition(.2s ease);
+
+  &:hover {
+
+    color: lighten($blue, 10%);
+
+  }
+
+  &:active {
+
+    color: darken($blue, 10%);
+
+  }
+
+}
+
+.link-white {
+
+  color: $white;
+  cursor: pointer;
+
+  @include transition(.2s ease);
+
+  &:hover {
+
+    color: darken($white, 10%);
+
+  }
+
+  &:active {
+
+    color: darken($white, 20%);
+
+  }
+
+}
+
+.mobile-video {
+
+  display: block;
+  margin: 0 auto;
+  height: 40px;
+  width: 40px;
+
+  background-image: url("/images/mobile-video.png");
+  background-repeat: no-repeat;
+  background-size: 40px;
+
+  @media (min-width: $screen-sm) {
+
+    display: none;
+
+  }
+
+}
+
+// Inputs
+
+input[type="text"],
+input[type="email"] {
+
+  width: 100%;
+  margin: 10px 0;
+  padding: 16px 20px;
+  font-size: 16px;
+  line-height: 16px;
+  color: $blue;
+  border: none;
+  background-color: rgba(255, 255, 255, .3);
+
+  &.input-block {
+
+    width: 100%
+
+  }
+
+  &:focus {
+
+    outline: none;
+
+  }
+
+  @include border-radius(30px);
+
+  @media (min-width: $screen-sm) {
+
+    margin: 15px;
+    width: -webkit-calc(50% - 30px);
+    width: calc(50% - 30px);
+
+    &.input-block {
+
+      width: -webkit-calc(100% - 30px);
+      width: calc(100% - 30px);
+
+    }
+
+  }
+
+}
+
+textarea {
+
+  margin: 10px 0;
+  padding: 16px;
+  width: 100%;
+  height: 100px;
+  color: $blue;
+  border: none;
+  background-color: rgba(255, 255, 255, .3);
+  outline: none;
+  resize: none;
+  font-size: inherit;
+  font-family: inherit;
+
+  @include border-radius(9px);
+
+  @media (min-width: $screen-sm) {
+
+    margin: 15px;
+    width: -webkit-calc(100% - 30px);
+    width: calc(100% - 30px);
+
+  }
+
+}
+
+form {
+
+  @media (min-width: $screen-sm) {
+
+    @include flexbox();
+    @include flex-wrap(wrap);
+
+  }
+
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: $placeholder;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: $placeholder;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: $placeholder;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: $placeholder;
+}
+
+[placeholder]{
+  text-overflow:ellipsis;
+}
+
+*::selection {
+
+  color: $white;
+  background: $blue;
+
+}
+
+// Container
+
+.container {
+
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 12px;
+  padding-right: 12px;
+
+  @media (min-width: $screen-sm) {
+
+    width: -webkit-calc(#{$screen-sm} - 24px);
+    width: calc(#{$screen-sm} - 24px);
+
+  }
+
+  @media  (min-width: $screen-md) {
+
+    width: -webkit-calc(#{$screen-md} - 24px);
+    width: calc(#{$screen-md} - 24px);
+
+  }
+
+  @media  (min-width: $screen-lg) {
+
+    width: -webkit-calc(#{$screen-lg} - 24px);
+    width: calc(#{$screen-lg} - 24px);
+
+  }
+
+}
+
+// Video styles
+
+.has-video-bg {
+
+  position: relative;
+  overflow: hidden;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+
+  .video-bg {
+
+    display: none;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    right: 0;
+    bottom: 0;
+    z-index: -100;
+
+    @include transform(translate(-50%, -50%));
+
+  }
+
+  @media (min-width: $screen-sm) {
+
+    background: none;
+
+    .video-bg {
+
+      display: block;
+
+    }
+
+  }
+
+}
+
+.has-main-video-bg {
+
+  .video-bg {
+
+    top: 72px;
+
+    @include transform(translate(-50%, 0));
+
+  }
+
+  @media (min-width: $screen-sm) and (max-width: $screen-md) {
+
+    .video-bg {
+
+      top: 67px;
+
+    }
+
+  }
+
+}
+
+.has-main-content-video-bg {
+
+  .video-bg {
+
+    top: 50%;
+
+    @include transform(translate(-50%, -50%));
+
+  }
+
+}
+
+// Long blocks
+
+.long {
+
+  &-title {
+
+    padding: 50px 10px;
+    background-image: linear-gradient(to top, #0b1825 0%, #233e59 100%);
+
+    .title {
+
+      margin: 0 0 40px;
+      font-size: 40px;
+      font-weight: 400;
+      text-transform: uppercase;
+
+    }
+
+    .txt {
+
+      line-height: 28px;
+      max-width: 580px;
+      margin: 0 auto;
+
+    }
+
+  }
+
+  &-inner {
+
+    &__item {
+
+      position: relative;
+      padding: 200px 0 75px;
+
+      .title {
+
+        position: relative;
+        font-size: 22px;
+        text-align: center;
+
+        &-roseline {
+
+          &:before {
+
+            background-color: $rose;
+
+          }
+
+        }
+
+        &-goldline {
+
+          &:before {
+
+            background-color: $gold;
+
+          }
+
+        }
+
+        &-blueline {
+
+          &:before {
+
+            background-color: $blue;
+
+          }
+
+        }
+
+        &:before {
+
+          content: '';
+          position: absolute;
+          top: -20px;
+          left: 50%;
+          margin-left: -14px;
+          width: 28px;
+          height: 2px;
+
+        }
+
+
+      }
+
+    }
+
+  }
+
+  @media (min-width: $screen-sm) {
+
+    &-title {
+
+      padding: 80px 10px;
+      text-align: center;
+
+    }
+
+    &-inner {
+
+      @include flexbox();
+
+      &__item {
+
+        width: calc(100% / 3);
+        padding: 400px 0 70px;
+
+      }
+
+    }
+
+  }
+
+  @media (min-width: $screen-lg) {
+
+    @include flexbox();
+
+    &-title {
+
+      width: 25%;
+      padding: 230px 30px;
+      text-align: left;
+
+    }
+
+    &-inner {
+
+      width: 75%;
+
+      &__item {
+
+        padding: 500px 0 70px;
+
+      }
+
+    }
+
+  }
+
+}
+
+// Wide blocks with circle
+
+.wide {
+
+  &-list {
+
+    &__item {
+
+      padding: 32px 0;
+      text-align: center;
+
+      .item-description {
+
+        @include flexbox();
+        @include flex-direction(column);
+        @include justify-content(center);
+        @include align-items(center);
+
+        margin: 0 auto;
+        padding: 0 20px;
+        height: 260px;
+        width: 260px;
+        background-color: rgba(0,0,0, .7);
+
+        @include border-radius(50%);
+
+        &__title {
+
+          margin-bottom: 20px;
+
+        }
+
+        &__txt {
+
+          padding: 0 10px;
+
+        }
+
+      }
+
+      @media (min-width: $screen-sm) {
+
+        padding: 64px 0;
+        background: rgba(0,0,0, 0);
+
+      }
+
+    }
+
+  }
+
+  @media (min-width: $screen-sm) {
+
+    &-list {
+
+      @include flexbox();
+      @include flex-wrap(wrap);
+
+      &__item {
+
+        width: 50%;
+
+      }
+
+    }
+
+  }
+
+  @media (min-width: $screen-md) {
+
+    &-list {
+
+      &__item {
+
+        @include flexbox();
+        @include justify-content(flex-end);
+
+        .item-description {
+
+          margin: 0 40px 0 0;
+          @include transition(.2s ease);
+
+          &__title {
+
+            @include transition(.2s ease);
+
+          }
+
+        }
+
+        &:hover {
+
+          .item-description {
+
+            @include transform(scale(1.1));
+
+            &__title {
+
+              color: $blue;
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+// Feedback
+
+.feedback {
+
+  padding: 70px 0 30px;
+  -webkit-box-shadow: 0 0 26px 1px rgba(0, 0, 0, 0.33);
+  box-shadow: 0 0 26px 1px rgba(0, 0, 0, 0.33);
+
+  background: url("/images/feedbackBg.png") no-repeat bottom center, -webkit-gradient(linear, left bottom, left top, from(#0b1825), to(#233e59));
+  background: url("/images/feedbackBg.png") no-repeat bottom center, -webkit-linear-gradient(bottom, #0b1825, #233e59);
+  background: url("/images/feedbackBg.png") no-repeat bottom center, -o-linear-gradient(bottom, #0b1825, #233e59);
+  background: url("/images/feedbackBg.png") no-repeat bottom center, linear-gradient(to top, #0b1825, #233e59);
+
+  &-title {
+
+    margin-bottom: 16px;
+    text-align: center;
+
+  }
+
+  &-txt {
+
+    margin: 0 auto 32px;
+    max-width: 450px;
+    text-align: center;
+
+  }
+
+  &-form {
+
+    margin: 0 auto;
+    max-width: 650px;
+
+    &__btn {
+
+      width: 100%;
+      margin-top: 15px;
+      text-align: center;
+
+    }
+
+  }
+
+  @media (min-width: $screen-sm) {
+
+    padding: 60px 0;
+
+    &-title {
+
+      margin-bottom: 32px;
+
+    }
+
+  }
+
+
+}
+
+.feedback-popup {
+
+  display: none;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  z-index: 99999;
+  overflow-y: auto;
+
+  -webkit-box-shadow: 0 0 26px 1px rgba(0, 0, 0, 0.33);
+  box-shadow: 0 0 26px 1px rgba(0, 0, 0, 0.33);
+  background: #040f1a;
+
+  &--active {
+
+    display: block;
+
+  }
+
+  &__close {
+
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    cursor: pointer;
+
+    @include transition(.2s ease);
+
+  }
+
+  @media (max-width: $screen-sm) {
+
+    &__close {
+
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+
+      background-color: rgba(31, 41, 51, .8);
+
+      img {
+
+        position: fixed;
+        top: 20px;
+        right: 24px;
+
+      }
+
+    }
+
+  }
+
+}
